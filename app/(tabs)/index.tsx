@@ -103,7 +103,7 @@ const ControlRemoto: React.FC = () => {
 };
 
 // Componente para mostrar la información del sistema
-const SystemInfo: React.FC<{ systemInfo: SystemInfo }> = ({ systemInfo }) => (
+const SystemInfoDisplay: React.FC<{ systemInfo: SystemInfo }> = ({ systemInfo }) => (
   <View style={styles.section}>
     <Text style={styles.sectionTitle}>Información del Sistema</Text>
     <View style={styles.infoRow}>
@@ -222,6 +222,8 @@ const App: React.FC = () => {
       },
       body: JSON.stringify({ command, x, y }),
     }).catch(error => console.error(error));
+
+
   };
 
   const startMoving = (command: string, x: number, y: number) => {
@@ -256,6 +258,7 @@ const App: React.FC = () => {
 
   const handleTurnSuspend = () => {
     const url = 'http://movilserver.zapto.org:3000';
+    
     fetch(url + '/suspend', {
       method: 'POST',
       headers: {
@@ -303,7 +306,7 @@ const App: React.FC = () => {
 
           {/* Renderizado condicional de vistas */}
           {showControlView && <ControlRemoto />}
-          {showSystemInfoView && systemInfo && <SystemInfo systemInfo={systemInfo} />}
+          {showSystemInfoView && systemInfo && <SystemInfoDisplay systemInfo={systemInfo} />}
 
           {/* Vista de Acciones */}
           <Actions
