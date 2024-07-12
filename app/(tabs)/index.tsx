@@ -214,7 +214,8 @@ const App: React.FC = () => {
   };
 
   const sendCommand = (command: string, x?: number, y?: number) => {
-    fetch('http://movilserver.zapto.org:3000', {
+    const url = 'http://movilserver.zapto.org:3000';
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -244,7 +245,8 @@ const App: React.FC = () => {
   };
 
   const handleTurnOff = () => {
-    fetch('http://movilserver.zapto.org:3000' + '/turn-off', {
+    const url = 'http://movilserver.zapto.org:3000';
+    fetch(url + '/turn-off', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -253,7 +255,8 @@ const App: React.FC = () => {
   };
 
   const handleTurnSuspend = () => {
-    fetch('http://movilserver.zapto.org:3000' + '/suspend', {
+    const url = 'http://movilserver.zapto.org:3000';
+    fetch(url + '/suspend', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -262,7 +265,8 @@ const App: React.FC = () => {
   };
 
   const handleTurnOn = () => {
-    fetch('http://movilserver.zapto.org:3000' + '/restart', {
+    const url = 'http://movilserver.zapto.org:3000';
+    fetch(url + '/restart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
